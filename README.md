@@ -1,5 +1,7 @@
 # testowanie_java
 
+Pawel Sobocinski
+
 Spis tresci
 =
 1. Lab01
