@@ -1,22 +1,25 @@
 package com.example;
 
+import java.util.*;
+
 class TelephoneManager
 {
-	// Utworz zmienna Telephone ktora jest lista
-	public Telephone Telephonelist;
-	public TelephoneManager()
+	private List<Telephone> TelephoneList; 
+	
+	public void add(int number, String name, String surname)
 	{
-		//Utworz nowa liste i przypisz ja do pola klasy.
-		this.Telephone = new List(Telephone); 
+		Telephone NewElement = new Telephone(number, name, surname); 
+		TelephoneList.add(NewElement);
 	}
 	
-	public void add()
+	public void remove(int number, String name, String surname)
 	{
-		//Dodaj elemnt
+		Telephone NewElement = new Telephone(number, name, surname);
+		TelephoneList.remove(NewElement);
 	}
 	
-	public void remove()
+	public List<Telephone> TelephoneGetter()
 	{
-		//Usun element
+		return TelephoneList;
 	}
 }

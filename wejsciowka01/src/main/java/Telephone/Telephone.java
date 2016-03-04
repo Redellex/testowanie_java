@@ -10,8 +10,8 @@ class Telephone
 	
 	public Telephone(int number, String name, String surname)
 	{
-		this.number = number;
-		this.name = name;
-		this.surname = surname;
+		number = this.number;
+		name = this.name;
+		surname = this.surname;
 	}
 }
