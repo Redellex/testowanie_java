@@ -4,7 +4,7 @@ import java.util.*;
 
 class TelephoneManager
 {
-	private List<Telephone> TelephoneList; 
+	private List<Telephone> TelephoneList = new ArrayList(); 
 	
 	public void add(int number, String name, String surname)
 	{
@@ -18,7 +18,7 @@ class TelephoneManager
 		TelephoneList.remove(NewElement);
 	}
 	
-	public List<Telephone> TelephoneGetter()
+	public List <Telephone> TelephoneGetter()
 	{
 		return TelephoneList;
 	}
