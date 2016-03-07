@@ -6,12 +6,12 @@ class Telephone
 {
 	private int number;
 	private String name;
-	private String surname;
+	private boolean CzyJestFajny;
 	
-	public Telephone(int number, String name, String surname)
+	public Telephone(int number, String name, boolean CzyJestFajny)
 	{
 		number = this.number;
 		name = this.name;
-		surname = this.surname;
+		CzyJestFajny = this.CzyJestFajny;
 	}
 }

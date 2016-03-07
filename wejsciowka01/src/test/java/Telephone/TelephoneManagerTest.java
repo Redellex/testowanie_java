@@ -11,8 +11,13 @@ public class TelephoneManagerTest
 	private TelephoneManager TelephoneList = new TelephoneManager();
 	
 	@Test
+	public void initializationTest(){
+		assertEquals(TelephoneList.TelephoneGetter(), new ArrayList<Telephone>());
+	}
+	
+	@Test
 	public void addTest(){
-		Telephone DodajMnie = new Telephone(51234, "PawPaw", "PiePie");
+		Telephone DodajMnie = new Telephone(51234, "PawPaw", true);
 		List<Telephone> TelephoneListTest = new ArrayList(); 
 		TelephoneList.add(DodajMnie);
 		TelephoneListTest.add(DodajMnie);
@@ -23,10 +28,9 @@ public class TelephoneManagerTest
 	@Test
 	public void removeTest()
 	{
-		Telephone UsunMnie = new Telephone(51234, "PawPaw", "PiePie");
+		Telephone UsunMnie = new Telephone(51234, "PawPaw", true);
 		TelephoneList.remove(UsunMnie);
 		List <Telephone> abc = TelephoneList.TelephoneGetter();
 		assertEquals(abc, new ArrayList<Telephone>());
 	}
-	
 }
