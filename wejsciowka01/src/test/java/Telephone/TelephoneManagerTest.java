@@ -33,4 +33,22 @@ public class TelephoneManagerTest
 		List <Telephone> abc = TelephoneList.TelephoneGetter();
 		assertEquals(abc, new ArrayList<Telephone>());
 	}
+	
+	@Test
+	public void addMultipleTest(){
+		Telephone Dodajmnie1 = new Telephone(1, "Pie", false);
+		Telephone Dodajmnie2 = new Telephone(2, "Diew", true);
+		Telephone Dodajmnie3 = new Telephone(3, "heh..", false);
+		
+		List TelephoneListTest = new ArrayList<Telephone>();
+		TelephoneListTest.add(Dodajmnie1);
+		TelephoneListTest.add(Dodajmnie2);
+		TelephoneListTest.add(Dodajmnie3);
+		
+		TelephoneList.add(Dodajmnie1);
+		TelephoneList.add(Dodajmnie2);
+		TelephoneList.add(Dodajmnie3);
+		
+		assertEquals(TelephoneListTest, TelephoneList.TelephoneGetter());
+	}
 }
