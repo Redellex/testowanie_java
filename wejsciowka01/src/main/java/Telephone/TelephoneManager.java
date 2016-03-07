@@ -6,16 +6,14 @@ class TelephoneManager
 {
 	private List<Telephone> TelephoneList = new ArrayList(); 
 	
-	public void add(int number, String name, String surname)
+	public void add(Telephone Telefon)
 	{
-		Telephone NewElement = new Telephone(number, name, surname); 
-		TelephoneList.add(NewElement);
+		TelephoneList.add(Telefon);
 	}
 	
-	public void remove(int number, String name, String surname)
+	public void remove(Telephone Telefon)
 	{
-		Telephone NewElement = new Telephone(number, name, surname);
-		TelephoneList.remove(NewElement);
+		TelephoneList.remove(Telefon);
 	}
 	
 	public List <Telephone> TelephoneGetter()

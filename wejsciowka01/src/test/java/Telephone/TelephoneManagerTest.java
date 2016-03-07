@@ -5,25 +5,28 @@ import java.util.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
-class TelephoneManagerTest
+public class TelephoneManagerTest
 {
 	// Utworzenie obiektu ktory mamy zamiar testowac
 	private TelephoneManager TelephoneList = new TelephoneManager();
 	
 	@Test
 	public void addTest(){
-		TelephoneList.add(510588, "PawPaw", "PiePie");
 		Telephone DodajMnie = new Telephone(51234, "PawPaw", "PiePie");
-		List <Telephone> abc = new ArrayList();
-		List <Telephone> abc2 = new ArrayList();
-		abc.add(DodajMnie);
-		assertArrayEquals(abc, abc);
+		List<Telephone> TelephoneListTest = new ArrayList(); 
+		TelephoneList.add(DodajMnie);
+		TelephoneListTest.add(DodajMnie);
+		List <Telephone> abc2 = TelephoneList.TelephoneGetter();
+		assertEquals(abc2, TelephoneListTest);
 	}
 	
 	@Test
 	public void removeTest()
 	{
-		//Sprawdzenie czy poprawnie usuwa element z listy
+		Telephone UsunMnie = new Telephone(51234, "PawPaw", "PiePie");
+		TelephoneList.remove(UsunMnie);
+		List <Telephone> abc = TelephoneList.TelephoneGetter();
+		assertEquals(abc, new ArrayList<Telephone>());
 	}
 	
 }
