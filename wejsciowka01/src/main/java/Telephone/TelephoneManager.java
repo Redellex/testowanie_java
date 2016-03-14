@@ -20,4 +20,9 @@ class TelephoneManager
 	{
 		return TelephoneList;
 	}
+	
+	public void setList(List<Telephone> TelephoneList)
+	{
+		this.TelephoneList = TelephoneList;
+	}
 }
