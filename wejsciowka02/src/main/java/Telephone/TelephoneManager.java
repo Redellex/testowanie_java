@@ -4,27 +4,38 @@ import java.util.*;
 
 public class TelephoneManager
 {
-	private  ITelephoneList telephonelist;
+	private  ITelephoneList telephoneList;
 	
-	public TelephoneManager(ITelephoneList TelephoneList)
+	public TelephoneManager(ITelephoneList telephoneList)
 	{
-		this.telephonelist = TelephoneList;
+		this.telephoneList = telephoneList;
 	}
 	
-	public boolean add(Telephone Telefon)
+	public boolean add(Telephone telefon)
 	{
-		telephonelist.add(Telefon);
+		telephoneList.add(telefon);
 		return true;
 	}
 	
-	public boolean remove(Telephone Telefon)
+	public boolean remove(Telephone telefon)
 	{
-		telephonelist.remove(Telefon);
+		telephoneList.remove(telefon);
 		return true;
 	}
 	
 	public Telephone getTelephone(int index)
 	{
-		return telephonelist.get(index);
+		return telephoneList.get(index);
 	}
+
+        public boolean findTelephone(Telephone telefon)
+        {
+            if(telephoneList.find(telefon)){
+                return true;   
+            }
+            else
+            {
+                return false;
+            }
+        }
 }
