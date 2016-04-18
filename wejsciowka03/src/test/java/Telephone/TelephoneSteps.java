@@ -17,6 +17,16 @@ public class TelephoneSteps
 		telephoneManager = new TelephoneManager();
 	}
 	
+	@Given("a setupped telephone")
+	public void telephoneSetupped()
+	{
+		telephoneManager = new TelephoneManager();
+		telephoneManager.add(element);
+		telephoneManager.add(element);
+		telephoneManager.add(element);
+		telephoneManager.add(element);
+	}	
+	
 	@When("add one element")
 	public void addTest()
 	{
