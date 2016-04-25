@@ -3,6 +3,7 @@ package com.example.seleniumlab04;
 import static org.junit.Assert.*;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.AfterClass;
@@ -41,15 +42,18 @@ public class SeleniumPractiseTest
 		assertNotNull(element);
 	}
 	
+	@Test
 	public void checkLink()
 	{
 		driver.get("http://www.seleniumframework.com/Practiceform/");
 		
 		driver.findElement(By.linkText("This is a link")).click();
-		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
+		driver.switchTo().window(tabs2.get(1));
 		assertEquals(driver.getCurrentUrl(), "http://www.seleniumframework.com/");
 	}
-	
+
 	@Test
 	public void checkBoxTest()
 	{
