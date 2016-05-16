@@ -23,6 +23,7 @@ public class PersonManager {
 	private PreparedStatement deletePersonStmt;
 	private PreparedStatement deleteAllPersonsStmt;
 	private PreparedStatement updatePersonStmt;
+	private PreparedStatement readPersonStmt;
 	private PreparedStatement getAllPersonsStmt;
 
 	private Statement statement;
@@ -56,6 +57,9 @@ public class PersonManager {
 			updatePersonStmt = connection
 					//Nowe wpierw, potem szukane.
 					.prepareStatement("UPDATE Person SET name = ? where name = ?");
+			readPersonStmt = connection
+					.prepareStatement("SELECT ? FROM Person");
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -107,6 +111,19 @@ public class PersonManager {
 			updatePersonStmt.executeUpdate();
 		}
 		catch (SQLException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void readPersons(String what)
+	{
+		int result;
+		try{
+			readPersonStmt.setString(1,  what);
+			
+			result = readPersonStmt.executeUpdate();
+		}
+		catch(SQLException e){
 			e.printStackTrace();
 		}
 	}

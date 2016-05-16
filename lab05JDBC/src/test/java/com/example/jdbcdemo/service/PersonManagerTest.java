@@ -70,10 +70,47 @@ public class PersonManagerTest {
 	public void checkUpdate(){
 		//Setup
 		Person person = new Person(NAME_1, YOB_1);
+		Person person2 = new Person(NAME_2, YOB_2);
+		int count = 0;
 		personManager.clearPersons();
 		
 		//Initializing db
 		personManager.addPerson(person);
+		personManager.addPerson(person);
+		personManager.addPerson(person);
+		personManager.addPerson(person2);
+		personManager.addPerson(person2);
+		personManager.addPerson(person2);
+		List<Person> persons = personManager.getAllPersons();
+		count = persons.size();
 		
+		//Running testing method.
+		personManager.updatePerson("Zenek", "Wladzio");
+		persons = personManager.getAllPersons();
+		assertEquals(count, persons.size());
+		for(int i = 0; i < persons.size(); i++)
+		{
+			Person personRetrieved = persons.get(i); 
+			assertThat(NAME_1, not(equalTo(personRetrieved.getName())));
+		}
 	}
+	/*
+	@Test
+	public void checkRead(){
+		//Setup
+		Person person = new Person(NAME_1, YOB_1);
+		Person person2 = new Person(NAME_2, YOB_2);
+		int count = 0;
+		personManager.clearPersons();
+		
+		//Initializing db
+		personManager.addPerson(person);
+		personManager.addPerson(person);
+		personManager.addPerson(person);
+		personManager.addPerson(person2);
+		personManager.addPerson(person2);
+		personManager.addPerson(person2);
+		
+		personManager.readPersons("NAME");
+	}*/
 }
