@@ -1,14 +1,17 @@
 package com.example.restservicedemo.rest;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
+import javax.ws.rs.DELETE; //DELETE
+import javax.ws.rs.GET; //READ
+import javax.ws.rs.POST; //CREATE
+import javax.ws.rs.PUT; //UPDATE
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.example.restservicedemo.domain.Game;
 import com.example.restservicedemo.service.GameManager;
@@ -26,6 +29,14 @@ public class GamesRESTService {
 		return p;
 	}
 	
+	@GET
+	@Path("/")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Game> getAllGame(){
+		List<Game> Games = pm.getAllGames();
+		return Games;
+	}
+	
 	@POST
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -35,14 +46,20 @@ public class GamesRESTService {
 	}
 	
 	@DELETE
-	@Path("/")
+	@Path("/{gameId}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response deleteGame(int id){
+	public Response deleteGame(@PathParam("gameId") long id){
 		pm.deleteGame(id);
 		return Response.status(201).entity("Game").build(); 
 	}
 	
-	
+	@PUT
+	@Path("/{gameId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response updateGame(@PathParam("gameId") long id, String name, String genre){
+		pm.updateGame(id, name, genre);
+		return Response.status(201).entity("Game").build();
+	}
 	
 	@GET
 	@Path("/test")

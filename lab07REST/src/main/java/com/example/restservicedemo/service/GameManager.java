@@ -23,6 +23,7 @@ public class GameManager {
 	private PreparedStatement deleteGameByIdStmt;
 	private PreparedStatement getAllGamesStmt;
 	private PreparedStatement getGameByIdStmt;
+	private PreparedStatement updateGameStmt;
 
 	private Statement statement;
 
@@ -54,6 +55,9 @@ public class GameManager {
 					.prepareStatement("SELECT * FROM Game where id = ?");
 			deleteGameByIdStmt = connection
 					.prepareStatement("DELETE FROM Game WHERE id = ?");
+			updateGameStmt = connection
+					//Nowe wpierw, potem szukane.
+					.prepareStatement("UPDATE Person SET name = ?, genre = ?, WHERE id = ?");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -94,6 +98,19 @@ public class GameManager {
 			
 			count = deleteGameByIdStmt.executeUpdate();
 		} catch (SQLException e){
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
+	public int updateGame(long id, String name, String genre){
+		int count = 0;
+		try {
+			updateGameStmt.setString(1, name);
+			updateGameStmt.setString(2, genre);
+			updateGameStmt.setLong(3, id);
+		}
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return count;
