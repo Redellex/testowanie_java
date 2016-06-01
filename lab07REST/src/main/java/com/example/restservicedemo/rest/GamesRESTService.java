@@ -50,15 +50,14 @@ public class GamesRESTService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response deleteGame(@PathParam("gameId") long id){
 		pm.deleteGame(id);
-		return Response.status(201).entity("Game").build(); 
+		return Response.status(200).entity("Game").build(); 
 	}
 	
 	@PUT
 	@Path("/{gameId}/{gameName}/{gameGenre}")
-	@Produces(MediaType.APPLICATION_JSON)
 	public Response updateGame(@PathParam("gameId") long id, @PathParam("gameName") String name, @PathParam("gameGenre") String genre){
 		pm.updateGame(id, name, genre);
-		return Response.status(201).entity("Game").build();
+		return Response.status(200).entity("Game").build();
 	}
 	
 	@GET
