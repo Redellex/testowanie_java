@@ -54,9 +54,9 @@ public class GamesRESTService {
 	}
 	
 	@PUT
-	@Path("/{gameId}")
+	@Path("/{gameId}/{gameName}/{gameGenre}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response updateGame(@PathParam("gameId") long id, String name, String genre){
+	public Response updateGame(@PathParam("gameId") long id, @PathParam("gameName") String name, @PathParam("gameGenre") String genre){
 		pm.updateGame(id, name, genre);
 		return Response.status(201).entity("Game").build();
 	}

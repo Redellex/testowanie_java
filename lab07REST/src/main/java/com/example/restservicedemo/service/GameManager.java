@@ -57,7 +57,7 @@ public class GameManager {
 					.prepareStatement("DELETE FROM Game WHERE id = ?");
 			updateGameStmt = connection
 					//Nowe wpierw, potem szukane.
-					.prepareStatement("UPDATE Person SET name = ?, genre = ?, WHERE id = ?");
+					.prepareStatement("UPDATE Game SET name = ?, genre = ? WHERE id = ?");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
