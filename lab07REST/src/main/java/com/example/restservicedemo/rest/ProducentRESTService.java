@@ -56,7 +56,7 @@ public class ProducentRESTService {
 	
 	@PUT
 	@Path("/{ProducentId}/{ProducentName}/{ProducentGameId}")
-	public Response updateProducent(@PathParam("ProducentId") long id, @PathParam("ProducentName") String name, @PathParam("ProducentGenre") long gameId){
+	public Response updateProducent(@PathParam("ProducentId") long id, @PathParam("ProducentName") String name, @PathParam("ProducentGameId") long gameId){
 		pm.updateProducent(id, name, gameId);
 		return Response.status(200).entity("Producent").build();
 	}
