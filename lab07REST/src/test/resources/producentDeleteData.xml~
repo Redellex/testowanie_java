@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<PRODUCENT ID="10" NAME="Activision" IDGAME="42"/>
+	<PRODUCENT ID="11" NAME="Activision" IDGAME="43"/>
+	<PRODUCENT ID="12" NAME="Activision" IDGAME="44"/>
+	<PRODUCENT ID="0" NAME="Rockstar" IDGAME="44"/>
+</dataset>

@@ -68,7 +68,7 @@ public class JDBCProducentTest {
 	}
 	
 	@Test
-	public void addGame() throws Exception{
+	public void addProducent() throws Exception{
 		Producent aProducent = new Producent(0l ,"Rockstar", 44l);
 		given().contentType(MediaType.APPLICATION_JSON).body(aProducent)
 				.when().post("/producent/").then().assertThat().statusCode(201);
@@ -85,6 +85,26 @@ public class JDBCProducentTest {
 		Assertion.assertEquals(expectedTable, filteredTable);
 	}
 	
+	@Test
+	public void deleteProducent() throws Exception{
+		Producent aProducent = new Producent(10l ,"Activision", 42l);
+		given().
+		contentType(MediaType.APPLICATION_JSON).body(aProducent).
+		when().
+		delete("/producent/10").then().assertThat().statusCode(200);
+
+		IDataSet dbDataSet = connection.createDataSet();
+		ITable actualTable = dbDataSet.getTable("PRODUCENT");
+		ITable filteredTable = DefaultColumnFilter.excludedColumnsTable
+				(actualTable, new String[]{"P_ID"});
+		
+		IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(
+				new File("src/test/resources/producentDeleteData.xml"));
+		ITable expectedTable = expectedDataSet.getTable("Producent");
+		
+		Assertion.assertEquals(expectedTable, filteredTable);
+	}
+
 	@AfterClass
 	public static void tearDown() throws Exception{
 		databaseTester.onTearDown();
