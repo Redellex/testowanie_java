@@ -104,6 +104,27 @@ public class JDBCProducentTest {
 		
 		Assertion.assertEquals(expectedTable, filteredTable);
 	}
+	
+	@Test
+	public void updateProducent() throws Exception{
+		given().
+			pathParam("ProducentId", "10").
+			pathParam("ProducentName", "Rock").
+			pathParam("ProducentGameId", "43").
+		when().	
+			put("/producent/{ProducentId}/{ProducentName}/{ProducentGameId}").then().assertThat().statusCode(200);
+
+		IDataSet dbDataSet = connection.createDataSet();
+		ITable actualTable = dbDataSet.getTable("PRODUCENT");
+		ITable filteredTable = DefaultColumnFilter.excludedColumnsTable
+				(actualTable, new String[]{"P_ID"});
+		
+		IDataSet expectedDataSet = new FlatXmlDataSetBuilder().build(
+				new File("src/test/resources/producentUpdateData.xml"));
+		ITable expectedTable = expectedDataSet.getTable("Producent");
+			
+		Assertion.assertEquals(expectedTable, actualTable);
+	}
 
 	@AfterClass
 	public static void tearDown() throws Exception{
