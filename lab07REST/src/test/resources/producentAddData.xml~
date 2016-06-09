@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<dataset>
-	<PRODUCENT ID="0" NAME="" gameId=""/>
-	<PRODUCENT ID="10" NAME="Activision" idGame="42"/>
-	<PRODUCENT ID="11" NAME="Activision" idGame="43"/>
-	<PRODUCENT ID="12" NAME="Rockstar" idGame="44"/>
-</dataset>
