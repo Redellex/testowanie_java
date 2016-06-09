@@ -145,5 +145,5 @@ public class ProducentServiceTest {
 	public void cleanUp(){
 		delete("/producent/").then().assertThat().statusCode(200);
 		delete("/game/").then().assertThat().statusCode(200);
-	}	
+	}
 }

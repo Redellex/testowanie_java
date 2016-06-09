@@ -20,7 +20,7 @@ import com.example.restservicedemo.domain.GameResponse;
 import com.jayway.restassured.RestAssured;
 
 public class GameServiceTest {
-	
+
 	private static final String GAME_NAME = "DOOM";
 	private static final String GAME_GENRE = "FPS";
 	private static final String GAME_NAME_2 = "World of Warcraft";
