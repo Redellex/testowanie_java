@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<GAME ID="45" NAME="Ping'n'Pong" GENRE="Sport"/>
+	<GAME ID="43" NAME="NetWars: Islands at war" GENRE="RTS'n'indie"/>
+	<GAME ID="44" NAME="DoggeSnake" GENRE="indie"/>
+</dataset>
